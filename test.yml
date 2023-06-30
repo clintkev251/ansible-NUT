@@ -1,0 +1,20 @@
+---
+- hosts: all
+  # remote_user: root
+  # ansible-role-nut is the uninstalled name of the ntd.nut role
+  become: true
+  become_method: su
+  roles:
+    # NetClient only mode
+    - role: ansible-role-nut
+      nut_enable_service: true
+      nut_managed_config: true
+      nut_mode: netclient
+      nut_user: slaveuser
+      nut_password: kevin9781
+      nut_host: apollo.corp
+      nut_role: slave
+      nut_packages:
+        - nut-client
+      nut_services:
+        - nut-client
